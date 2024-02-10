@@ -1,6 +1,6 @@
 import { RefObject, useRef } from "react";
 import "./App.css";
-import Otp from "./components/Otp";
+import Otp from "@a7medhassanmohi/react-otp";
 import PhoneOtpLogin from "./components/PhoneOtpLogin";
 function App() {
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -35,7 +35,7 @@ function App() {
           shouldAutoFocus={true}
 
           onReset={({reset}) =>{
-            reset({index:1,value:"ddd "})
+            reset()
           }}
           ResetBtnRef={resetRef}
         />
