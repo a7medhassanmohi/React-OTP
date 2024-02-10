@@ -14,3 +14,28 @@ margin: 5px;
 text-align: center;
 font-size: 1.2em;
 }
+.otp_input:disabled{
+    cursor: not-allowed;
+}
+.input_item{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.inputContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputContainer .input_item:last-child >.separator_container{
+    display: none;
+}
+
+.border_red{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.red_input{
+    padding: 0;
+}
