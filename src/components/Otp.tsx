@@ -153,7 +153,7 @@ const Otp = ({
   }, [Otp]);
 
   useEffect(() => {
-    function handleReset(e: Event){
+    function handleReset(){
       onReset({reset})
       
     }
@@ -205,7 +205,7 @@ const Otp = ({
                   : {})}
                 {...(onFocus
                   ? {
-                      onFocus: (e) =>
+                      onFocus: () =>
                         onFocus({
                           index: i,
                           inputRefs,
@@ -217,7 +217,7 @@ const Otp = ({
                   : {})}
                 {...(onBlur
                   ? {
-                      onBlur: (e) =>
+                      onBlur: () =>
                         onBlur({
                           index: i,
                           inputRefs,
