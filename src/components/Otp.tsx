@@ -6,6 +6,9 @@ import React, {
   useState,
 } from "react";
 
+type RefTypes=RefObject<
+HTMLButtonElement | HTMLDivElement | HTMLAnchorElement
+>
 type SubmitType = {
   values: string;
   valuesAsArray: string[];
@@ -33,9 +36,12 @@ type Props = {
   onFocus?: (x: SubmitType & { index: number }) => void;
   onBlur?: (x: SubmitType & { index: number }) => void;
   shouldAutoFocus?: boolean;
-  submitBtnRef?: RefObject<
-    HTMLButtonElement | HTMLDivElement | HTMLAnchorElement
-  >;
+  submitBtnRef?: RefTypes;
+  onReset?:(x:{reset: (obj?: {
+    index: number;
+    value: string;
+}) => void})=>void
+  ResetBtnRef?: RefTypes;
 };
 
 const Otp = ({
@@ -48,12 +54,14 @@ const Otp = ({
   inputClassName = "",
   onChange = () => {},
   submitBtnRef,
+  ResetBtnRef,
   shouldAutoFocus = true,
   submitAutomaticAfterInputsFilled = () => {},
   onKeyDown = () => {},
   onKeyUp = () => {},
   onFocus = () => {},
   onBlur = () => {},
+  onReset=()=>{}
 }: Props) => {
   if (numberOfInputs <= 0) {
     throw new Error("numberOfInputs must be great than 0");
@@ -64,8 +72,11 @@ const Otp = ({
     if (obj) {
       if (obj.index > Otp.length - 1) return;
       setOtp((prev) => {
-        prev[obj.index] = obj.value;
-        return prev;
+       const otp=Otp.slice()
+       const trimedValue=obj?.value?.split("").filter((c)=>!isNaN(+c) && !!c.trim()).join("").trim();
+       if(!trimedValue || isNaN(+trimedValue))return prev
+       otp[obj.index] = trimedValue[trimedValue.length-1];
+        return otp;
       });
     } else {
       setOtp(new Array(numberOfInputs).fill(""));
@@ -140,6 +151,21 @@ const Otp = ({
       submitBtnRef?.current?.removeEventListener("click", handleSubmit);
     };
   }, [Otp]);
+
+  useEffect(() => {
+    function handleReset(e: Event){
+      onReset({reset})
+      
+    }
+
+    if (ResetBtnRef) {
+      ResetBtnRef.current?.addEventListener("click", handleReset);
+    }
+    return () => {
+      ResetBtnRef?.current?.removeEventListener("click", handleReset);
+    };
+  }, [Otp]);
+
 
   return (
     <>

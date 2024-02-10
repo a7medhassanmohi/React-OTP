@@ -4,14 +4,14 @@ import Otp from "./components/Otp";
 import PhoneOtpLogin from "./components/PhoneOtpLogin";
 function App() {
   const btnRef = useRef<HTMLButtonElement>(null);
+  const resetRef = useRef<HTMLButtonElement>(null);
   return (
     <>
       <div className="app">
-        {/* <PhoneOtpLogin/> */}
         <Otp
-          onSubmit={() => {
-            
+          onSubmit={({reset}) => {
           }}
+          submitBtnRef={btnRef}
           submitAutomaticAfterInputsFilled={()=>{
 
           }}
@@ -28,16 +28,18 @@ function App() {
             
           }}
           numberOfInputs={5}
-          submitBtnRef={btnRef}
           ContainerClassName="border_red"
           inputClassName="red_input"
           onChange={() => {
-            // console.log({inputRefs,values,valuesAsArray});
-            // console.log(values,refs);
           }}
           shouldAutoFocus={true}
+
+          onReset={({reset}) =>{
+            reset({index:1,value:"ddd "})
+          }}
+          ResetBtnRef={resetRef}
         />
-        <button ref={btnRef}>click</button>
+        <button ref={resetRef}>reset</button>
       </div>
     </>
   );
