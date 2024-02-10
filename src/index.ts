@@ -1,2 +1,3 @@
 import "./App.css"
-export * from './components';
+import Otp from "./components";
+export default Otp;
