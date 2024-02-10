@@ -1,30 +1,72 @@
-# React + TypeScript + Vite
+# react-otp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+`react-otp` is a React component library that provides an easy-to-use OTP (One-Time Password) input component with customizable features.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can install `react-otp` via npm or yarn:
 
-## Expanding the ESLint configuration
+```bash
+npm install react-otp
+```
+```bash
+# or
+yarn add react-otp
+```
+## Usage
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+To use react-otp in your React application, import the Otp component and customize it with props as needed:
 
-- Configure the top-level `parserOptions` property like this:
+```jsx
+import React from 'react';
+import Otp from 'react-otp';
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+const MyOtpComponent = () => {
+  const handleSubmit = () => {
+    // Handle OTP submission
+  };
+
+  const handleReset = () => {
+    // Handle OTP reset
+  };
+
+  return (
+    <Otp
+      onSubmit={handleSubmit}
+      onReset={handleReset}
+      numberOfInputs={6}
+      isDisabled={false}
+      shouldAutoFocus={true}
+      // Add other props as needed
+    />
+  );
+};
+
+export default MyOtpComponent;
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Props
+
+react-otp provides the following props for customization:
+onSubmit: Function called when the OTP is submitted.
+onReset: Function called when the OTP is reset.
+numberOfInputs: Number of input fields for the OTP (default: 1).
+isDisabled: Disables the OTP input fields (default: false).
+shouldAutoFocus: Automatically focuses on the first input field (default: true).
+renderSeparator: Custom separator to render between input fields.
+placeHolder: Function to generate placeholders for input fields.
+ContainerClassName: CSS class name for the container element.
+inputClassName: CSS class name for the input fields.
+onChange: Function called when the OTP value changes.
+submitBtnRef: Ref for the submit button.
+ResetBtnRef: Ref for the reset button.
+submitAutomaticAfterInputsFilled: Function to automatically submit OTP after all inputs are filled.
+onKeyDown: Function called when a key is pressed in an input field.
+onKeyUp: Function called when a key is released in an input field.
+onFocus: Function called when an input field gains focus.
+onBlur: Function called when an input field loses focus.
+For more detailed usage and customization options, please refer to the documentation or source code.
+
+License
+This project is licensed under the MIT License.

@@ -35,7 +35,7 @@ function App() {
           shouldAutoFocus={true}
 
           onReset={({reset}) =>{
-            reset({index:1,value:"ddd "})
+            reset()
           }}
           ResetBtnRef={resetRef}
         />
