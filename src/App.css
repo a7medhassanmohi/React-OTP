@@ -1,41 +1,33 @@
-html,body,#root{
-    height: 100%;
-}
-.app{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.otp_input{
-width: 40px;
-height: 40px;
-margin: 5px;
-text-align: center;
-font-size: 1.2em;
-}
-.otp_input:disabled{
-    cursor: not-allowed;
-}
-.input_item{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-}
-.inputContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.inputContainer .input_item:last-child >.separator_container{
-    display: none;
-}
 
-.border_red{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.red_input{
-    padding: 0;
-}
+.otp_input{
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    text-align: center;
+    font-size: 1.2em;
+    }
+    .otp_input:disabled{
+        cursor: not-allowed;
+    }
+    .otp_input_item{
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+    .otp_inputContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .otp_inputContainer .otp_input_item:last-child >.otp_separator_container{
+        display: none;
+    }
+    
+    .border_red{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .red_input{
+        padding: 0;
+    }

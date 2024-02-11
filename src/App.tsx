@@ -9,7 +9,10 @@ function App() {
     <>
       <div className="app">
         <Otp
-          onSubmit={({reset}) => {
+        placeHolder={()=>""}
+        
+        passwordType={false}
+          onSubmit={() => {
           }}
           submitBtnRef={btnRef}
           submitAutomaticAfterInputsFilled={()=>{
@@ -38,6 +41,7 @@ function App() {
             reset()
           }}
           ResetBtnRef={resetRef}
+          isDisabled
         />
         <button ref={resetRef}>reset</button>
       </div>
