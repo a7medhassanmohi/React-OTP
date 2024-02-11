@@ -1,12 +1,4 @@
-html,body,#root{
-    height: 100%;
-}
-.app{
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .otp_input{
 width: 40px;
 height: 40px;
@@ -17,17 +9,17 @@ font-size: 1.2em;
 .otp_input:disabled{
     cursor: not-allowed;
 }
-.input_item{
+.otp_input_item{
     display: flex;
     justify-content: center;
     align-items: center; 
 }
-.inputContainer{
+.otp_inputContainer{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.inputContainer .input_item:last-child >.separator_container{
+.otp_inputContainer .otp_input_item:last-child >.otp_separator_container{
     display: none;
 }
 

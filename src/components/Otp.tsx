@@ -42,6 +42,7 @@ type Props = {
     value: string;
 }) => void})=>void
   ResetBtnRef?: RefTypes;
+  passwordType:boolean
 };
 
 const Otp = ({
@@ -49,7 +50,7 @@ const Otp = ({
   numberOfInputs = 1,
   renderSeparator,
   isDisabled = false,
-  placeHolder,
+  placeHolder=()=>"",
   ContainerClassName = "",
   inputClassName = "",
   onChange = () => {},
@@ -61,7 +62,8 @@ const Otp = ({
   onKeyUp = () => {},
   onFocus = () => {},
   onBlur = () => {},
-  onReset=()=>{}
+  onReset=()=>{},
+  passwordType=false
 }: Props) => {
   if (numberOfInputs <= 0) {
     throw new Error("numberOfInputs must be great than 0");
@@ -169,15 +171,15 @@ const Otp = ({
 
   return (
     <>
-      <div className={`inputContainer ${ContainerClassName}`}>
+      <div className={`otp_inputContainer ${ContainerClassName}`}>
         {Otp.map((value, i) => {
           return (
-            <div className="input_item" key={i}>
+            <div className="otp_input_item" key={i}>
               <input
                 ref={(input) => {
                   inputRefs.current[i] = input as HTMLInputElement;
                 }}
-                type="text"
+                type={passwordType?"password":"text"}
                 value={value}
                 onChange={(e) => handleChange(i, e)}
                 onClick={() => handleClick(i)}
@@ -228,7 +230,7 @@ const Otp = ({
                     }
                   : {})}
               />
-              <div className="separator_container">
+              <div className="otp_separator_container">
                 {renderSeparator && renderSeparator}
               </div>
             </div>
