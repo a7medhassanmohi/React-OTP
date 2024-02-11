@@ -259,7 +259,7 @@ export default MyOtpComponent;
 
 
 
- <a href="https://www.buymeacoffee.com/a7medhassanmohi"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=a7medhassanmohi&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>
+ <a href="https://www.buymeacoffee.com/a7medhassanmohi"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=a7medhassanmohi&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" target="_blank" /></a>
 
 License
 This project is licensed under the MIT License.
