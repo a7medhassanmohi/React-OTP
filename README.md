@@ -255,6 +255,7 @@ export default MyOtpComponent;
  <Otp
    onBlur={({index,inputRefs,reset,values,valuesAsArray})=>{}}
  />
+ ```
 
 
 
