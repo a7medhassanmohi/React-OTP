@@ -42,7 +42,7 @@ type Props = {
     value: string;
 }) => void})=>void
   ResetBtnRef?: RefTypes;
-  passwordType:boolean
+  passwordType?:boolean
 };
 
 const Otp = ({
