@@ -5,8 +5,8 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/a7medhassanmohi"
   },
-  "version": "0.0.4",
-  "description": "`react-otp` is a React component library that provides an easy-to-use OTP (One-Time Password) input component with customizable features.",
+  "version": "0.0.6",
+  "description": "`react-otp` is a React component library that provides an easy-to-use OTP (One-Time Password) input component with customizable features. using typescript and react ",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "exports": {
