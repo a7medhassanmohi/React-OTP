@@ -15,11 +15,11 @@
 You can install `react-otp` via npm or yarn:
 
 ```bash
-npm install @a7medhassanmohi/react-otp@0.0.3
+npm install @a7medhassan/react-otp
 ```
 ```bash
 # or
-yarn add @a7medhassanmohi/react-otp@0.0.3
+yarn add @a7medhassan/react-otp
 ```
 ## Usage
 
