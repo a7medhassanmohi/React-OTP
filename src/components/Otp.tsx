@@ -74,7 +74,7 @@ const Otp = ({
   const reset = (obj?: { index: number; value: string }) => {
     if (obj) {
       if (obj.index > Otp.length - 1) return;
-      setOtp((prev) => {
+      setOtp(() => {
        const otp=Otp.slice()
        const trimedValue=obj?.value?.split("").filter((c)=>!isNaN(+c) && !!c.trim()).join("").trim();
        if(!trimedValue || isNaN(+trimedValue)){
