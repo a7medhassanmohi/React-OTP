@@ -1,6 +1,6 @@
 import { RefObject, useRef } from "react";
 import "./App.css";
-import Otp from "@a7medhassanmohi/react-otp";
+import Otp from "./components/Otp";
 import PhoneOtpLogin from "./components/PhoneOtpLogin";
 function App() {
   const btnRef = useRef<HTMLButtonElement>(null);
@@ -9,14 +9,16 @@ function App() {
     <>
       <div className="app">
         <Otp
-        placeHolder={()=>""}
+        placeHolder={(n)=>""}
         
         passwordType={false}
           onSubmit={() => {
+            
+
           }}
           submitBtnRef={btnRef}
           submitAutomaticAfterInputsFilled={()=>{
-
+           
           }}
           onKeyDown={()=>{
             
@@ -26,9 +28,9 @@ function App() {
           }}
           onFocus={()=>{
             
+            
           }}
           onBlur={()=>{
-            
           }}
           numberOfInputs={5}
           ContainerClassName="border_red"
@@ -38,12 +40,16 @@ function App() {
           shouldAutoFocus={true}
 
           onReset={({reset}) =>{
-            reset()
+            reset({index:1,value:"luiui64hhh"})
           }}
           ResetBtnRef={resetRef}
-          isDisabled
         />
-        <button ref={resetRef}>reset</button>
+        <button ref={btnRef}>
+          submit
+        </button>
+        <button ref={resetRef}>
+          reset
+        </button>
       </div>
     </>
   );
