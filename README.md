@@ -8,7 +8,7 @@
 
 <h1 align="center">@a7medhassan/react-otp</h1>
 
-`react-otp` is a React component library that provides an easy-to-use OTP (One-Time Password) input component with customizable features.
+`react-otp` is a React component library that provides an easy-to-use OTP (One-Time Password) input component with customizable features using typescript and react.
 ### it can also work with next js  without any problem
 ## Installation
 
@@ -180,11 +180,8 @@ export default MyOtpComponent;
  //* values: values of inputs as string ex:"1233"
  //* valuesAsArray: values of inputs as array ex:["1","2","3","4"]
  //* inputRefs: refs off all inputs  ex inputRefs.current=[ref,ref,ref,ref] 
- //* reset: function that handle reset of all inputs or one of theme
-//ex 1 : reset() ==>> this will reset all inputs
-//ex 2 : reset({index:1,value:""}) ==>> this will reset certain input with its index
  <Otp
-  onChange={({values,valuesAsArray,reset,inputRefs}) => {}}
+  onChange={({values,valuesAsArray,inputRefs}) => {}}
  />
  ```
 
@@ -212,11 +209,8 @@ export default MyOtpComponent;
  //* index:index of input ex:1
  //* key: value of input  ex:"5"
  //* inputRefs: refs off all inputs  ex inputRefs.current=[ref,ref,ref,ref] 
- //* reset: function that handle reset of all inputs or one of theme
-//ex 1 : reset() ==>> this will reset all inputs
-//ex 2 : reset({index:1,value:""}) ==>> this will reset certain input with its index
  <Otp
-  onKeyDown={({index,inputRefs,key,reset}) => {}}
+  onKeyDown={({index,inputRefs,key}) => {}}
  />
  ```
 
@@ -229,11 +223,8 @@ export default MyOtpComponent;
  //* index:index of input ex:1
  //* key: value of input  ex:"5"
  //* inputRefs: refs off all inputs  ex inputRefs.current=[ref,ref,ref,ref] 
- //* reset: function that handle reset of all inputs or one of theme
-//ex 1 : reset() ==>> this will reset all inputs
-//ex 2 : reset({index:1,value:""}) ==>> this will reset certain input with its index
  <Otp
-  onKeyUp={({index,inputRefs,key,reset,values,valuesAsArray})=>{ }}
+  onKeyUp={({index,inputRefs,key,values,valuesAsArray})=>{ }}
  />
  ```
 
@@ -245,11 +236,8 @@ export default MyOtpComponent;
  //* valuesAsArray: values of inputs as array ex:["1","2","3","4"]
  //* index:index of input ex:1
  //* inputRefs: refs off all inputs  ex inputRefs.current=[ref,ref,ref,ref] 
- //* reset: function that handle reset of all inputs or one of theme
-//ex 1 : reset() ==>> this will reset all inputs
-//ex 2 : reset({index:1,value:""}) ==>> this will reset certain input with its index
  <Otp
-    onFocus={({index,inputRefs,reset,values,valuesAsArray})=>{
+    onFocus={({index,inputRefs,values,valuesAsArray})=>{
       }}
  />
  ```
@@ -262,11 +250,9 @@ export default MyOtpComponent;
  //* valuesAsArray: values of inputs as array ex:["1","2","3","4"]
  //* index:index of input ex:1
  //* inputRefs: refs off all inputs  ex inputRefs.current=[ref,ref,ref,ref] 
- //* reset: function that handle reset of all inputs or one of theme
-//ex 1 : reset() ==>> this will reset all inputs
-//ex 2 : reset({index:1,value:""}) ==>> this will reset certain input with its index
+
  <Otp
-   onBlur={({index,inputRefs,reset,values,valuesAsArray})=>{}}
+   onBlur={({index,inputRefs,values,valuesAsArray})=>{}}
  />
  ```
 

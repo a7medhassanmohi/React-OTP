@@ -25,16 +25,16 @@ type Props = {
   renderSeparator?: ReactNode;
   isDisabled?: boolean;
   placeHolder?: (inputNumber: string) => string | undefined;
-  onChange?: (x: SubmitType) => void;
+  onChange?: (x: Omit<SubmitType,"reset">) => void;
   onKeyDown?: (
     x: Omit<
-      SubmitType & { index: number; key: string },
+    Omit<SubmitType,"reset"> & { index: number; key: string },
       "values" | "valuesAsArray"
     >
   ) => void;
-  onKeyUp?: (x: SubmitType & { index: number; key: string }) => void;
-  onFocus?: (x: SubmitType & { index: number }) => void;
-  onBlur?: (x: SubmitType & { index: number }) => void;
+  onKeyUp?: (x: Omit<SubmitType,"reset"> & { index: number; key: string }) => void;
+  onFocus?: (x: Omit<SubmitType,"reset"> & { index: number }) => void;
+  onBlur?: (x: Omit<SubmitType,"reset"> & { index: number }) => void;
   shouldAutoFocus?: boolean;
   submitBtnRef?: RefTypes;
   onReset?:(x:{reset: (obj?: {
@@ -68,15 +68,19 @@ const Otp = ({
   if (numberOfInputs <= 0) {
     throw new Error("numberOfInputs must be great than 0");
   }
-  const [Otp, setOtp] = useState(new Array(numberOfInputs).fill(""));
 
+  
+  const [Otp, setOtp] = useState(new Array(numberOfInputs).fill(""));
   const reset = (obj?: { index: number; value: string }) => {
     if (obj) {
       if (obj.index > Otp.length - 1) return;
       setOtp((prev) => {
        const otp=Otp.slice()
        const trimedValue=obj?.value?.split("").filter((c)=>!isNaN(+c) && !!c.trim()).join("").trim();
-       if(!trimedValue || isNaN(+trimedValue))return prev
+       if(!trimedValue || isNaN(+trimedValue)){
+        otp[obj.index]=""
+        return otp
+       } 
        otp[obj.index] = trimedValue[trimedValue.length-1];
         return otp;
       });
@@ -84,7 +88,14 @@ const Otp = ({
       setOtp(new Array(numberOfInputs).fill(""));
     }
   };
+ 
   const inputRefs = useRef<HTMLInputElement[]>([]);
+  function getInputsValues(){
+    if(inputRefs.current.length){
+      return inputRefs.current.map((i)=>i.value)
+    }
+    return new Array(numberOfInputs).fill("")
+  }
   const handleChange = (i: number, e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
     if (isNaN(+value)) return;
@@ -97,7 +108,7 @@ const Otp = ({
 
     /* submit trigger */
     const combineOtp = newOtp.join("");
-    onChange({ values: combineOtp, valuesAsArray: newOtp, inputRefs, reset });
+    onChange({ values: combineOtp, valuesAsArray: newOtp, inputRefs });
     if (combineOtp.length === numberOfInputs) {
       submitAutomaticAfterInputsFilled({
         values: combineOtp,
@@ -189,9 +200,8 @@ const Otp = ({
                     index: i,
                     key: e.key,
                     inputRefs,
-                    reset,
                     values: Otp.join(""),
-                    valuesAsArray: Otp.slice(),
+                    valuesAsArray: getInputsValues(),
                   });
                 }}
                 className={`otp_input ${inputClassName}`}
@@ -202,7 +212,7 @@ const Otp = ({
                 {...(onKeyDown
                   ? {
                       onKeyDown: (e) =>
-                        onKeyDown({ index: i, key: e.key, inputRefs, reset }),
+                        onKeyDown({ index: i, key: e.key, inputRefs }),
                     }
                   : {})}
                 {...(onFocus
@@ -211,9 +221,8 @@ const Otp = ({
                         onFocus({
                           index: i,
                           inputRefs,
-                          reset,
-                          values: Otp.join(""),
-                          valuesAsArray: Otp.slice(),
+                          values: getInputsValues().join(""),
+                          valuesAsArray: getInputsValues(),
                         }),
                     }
                   : {})}
@@ -223,9 +232,8 @@ const Otp = ({
                         onBlur({
                           index: i,
                           inputRefs,
-                          reset,
-                          values: Otp.join(""),
-                          valuesAsArray: Otp.slice(),
+                          values: getInputsValues().join(""),
+                          valuesAsArray: getInputsValues(),
                         }),
                     }
                   : {})}
