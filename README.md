@@ -1,5 +1,13 @@
 # react-otp
 
+<p align="center">
+  <a href="" >
+    <img  src="https://res.cloudinary.com/mohii/image/upload/v1707755180/eq65pt2rvbmqmmeebqve.png" alt="@a7medhassan/react-otp">
+  </a>
+</p>
+
+<h1 align="center">@a7medhassan/react-otp</h1>
+
 `react-otp` is a React component library that provides an easy-to-use OTP (One-Time Password) input component with customizable features.
 
 ## Installation
@@ -135,14 +143,17 @@ export default MyOtpComponent;
  
  <Otp
   renderSeparator={<>*</>}
+  </>
  ```
 
 * `placeHolder`: Function to generate placeholders for input fields.
 
 ```jsx
- 
+ // placeHolder is a function that accept input number(index +1) and return string that display in placeholder input
+ //ex: in input number one this function will look like this (1)=>"" you can return the number of input or any thing you want
  <Otp
-  renderSeparator={<>*</>}
+  placeHolder={(inputNumber)=>""}
+  </>
  ```
 
 * `ContainerClassName`: CSS class name for the container element.
@@ -150,6 +161,7 @@ export default MyOtpComponent;
  
  <Otp
   ContainerClassName="test"
+   </>
  ```
 
 * `inputClassName`: CSS class name for the input fields.
@@ -158,6 +170,7 @@ export default MyOtpComponent;
  
  <Otp
   inputClassName="test"
+   </>
  ```
 
 * `onChange`: Function called when the OTP value changes.
