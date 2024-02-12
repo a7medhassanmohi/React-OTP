@@ -9,7 +9,7 @@
 <h1 align="center">@a7medhassan/react-otp</h1>
 
 `react-otp` is a React component library that provides an easy-to-use OTP (One-Time Password) input component with customizable features.
-
+### it can also work with next js  without any problem
 ## Installation
 
 You can install `react-otp` via npm or yarn:
