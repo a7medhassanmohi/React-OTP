@@ -18,7 +18,6 @@ You can install `react-otp` via npm or yarn:
 npm install @a7medhassan/react-otp
 ```
 ```bash
-# or
 yarn add @a7medhassan/react-otp
 ```
 ## Usage
@@ -27,7 +26,7 @@ To use react-otp in your React application, import the Otp component and customi
 
 ```jsx
 import React from 'react';
-import Otp from 'react-otp';
+import Otp from '@a7medhassan/react-otp';
 
 const MyOtpComponent = () => {
   const handleSubmit = () => {
@@ -253,6 +252,14 @@ export default MyOtpComponent;
 
  <Otp
    onBlur={({index,inputRefs,values,valuesAsArray})=>{}}
+ />
+ ```
+
+ * `passwordType`: change the type of input to password (default=false).
+
+ ```jsx
+  <Otp
+   passwordType={true}
  />
  ```
 
